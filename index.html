@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인간행동과 사회환경 - 전체 학습 목차</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        * { font-family: 'Pretendard', sans-serif; word-break: keep-all; }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; }
+        .btn:active { transform: scale(0.98); }
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="p-4 flex flex-col items-center min-h-screen">
+
+    <div class="max-w-6xl w-full bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-6 md:p-10 fade-in my-8">
+        <div class="text-center mb-10">
+            <div class="inline-block bg-indigo-600 text-white p-4 rounded-2xl text-4xl shadow-lg mb-4">
+                🔥
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold text-slate-800 mb-2">인간행동과 사회환경</h1>
+            <p class="text-slate-600 text-lg">15강까지 완주! 파이팅입니다.</p>
+        </div>
+
+        <div id="lecture-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            </div>
+
+        <footer class="mt-12 text-center text-slate-400 text-sm">
+            Created by 깨시조 | 학우님들의 합격을 기원합니다.
+        </footer>
+    </div>
+
+    <script>
+      const lectures = [
+            { no: 1, title: "인간과 인간행동의 이해" },
+            { no: 2, title: "인간행동의 형성과 사회환경" },
+            { no: 3, title: "인간행동의 연구와 실천" },
+            { no: 4, title: "정신분석적 이론" },
+            { no: 5, title: "행동주의 이론" },
+            { no: 6, title: "사회적 학습이론" },
+            { no: 7, title: "인본주의 이론" },
+            { no: 8, title: "사회환경에 대한 관점과 생태체계 이론" },
+            { no: 9, title: "가족과 집단" },
+            { no: 10, title: "조직과 지역공동체" },
+            { no: 11, title: "건강한 성격,스트레스와 적응" },
+            { no: 12, title: "부적응행동의 개념및유형" },
+            { no: 13, title: "아동기의 사회환경과 부적응 행동" },
+            { no: 14, title: "청소년기의 사회환경과 부적응 행동" },
+            { no: 15, title: "청장년기 및 중년기의 사회환경과 부적응 행동" }
+        ];
+
+        const grid = document.getElementById('lecture-grid');
+
+        // 15개 버튼을 자동으로 만들어주는 기계 (반복문)
+        lectures.forEach(lecture => {
+            // 파일명 규칙: lecture01.html, lecture02.html ...
+            const fileName = `lecture${String(lecture.no).padStart(2, '0')}.html`;
+            
+            // HTML 조각 만들기
+            const cardHtml = `
+                <a href="${fileName}" class="btn group bg-white border-2 border-indigo-50 hover:border-indigo-500 p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all flex flex-col items-start cursor-pointer relative overflow-hidden">
+                    <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="text-6xl font-bold text-indigo-900">${lecture.no}</span>
+                    </div>
+                    <div class="flex justify-between w-full mb-3 z-10">
+                        <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">제 ${String(lecture.no).padStart(2,'0')} 강</span>
+                        <i class="fas fa-play text-indigo-200 group-hover:text-indigo-600 transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-700 z-10 group-hover:text-indigo-700 transition-colors line-clamp-2">
+                        ${lecture.title}
+                    </h3>
+                    <div class="mt-4 w-full flex justify-end z-10">
+                        <span class="text-xs text-slate-400 group-hover:text-indigo-500 font-bold transition-colors">학습하기 &rarr;</span>
+                    </div>
+                </a>
+            `;
+            
+            grid.innerHTML += cardHtml;
+        });
+    </script>
+</body>
+</html>
